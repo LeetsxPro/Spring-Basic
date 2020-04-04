@@ -4,5 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
    <bean id="mDAO" class="com.TSL.www.dao.MemberDAO" />
+   <bean id="cDAO" class="com.TSL.www.dao.CodeDAO" />
    
 </beans>

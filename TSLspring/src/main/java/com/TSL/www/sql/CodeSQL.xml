@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+			PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+			
+<mapper namespace="cSQL">
+
+	<!-- 코드리스트 출력 -->
+	<select id="codeList" resultType="cVO" parameterType="cVO">
+		SELECT
+		    C_CNO cno, C_CLV clv, C_HIGHC highc, C_CNAME cname, C_USE use
+		FROM
+		    CODE
+	</select>
+
+	<!-- 코드 상세 정보 출력 -->
+	<select id="codeInfo" resultType="cVO" parameterType="cVO">
+		SELECT
+		    C_CNO cno, C_CLV clv, C_HIGHC highc, C_CNAME cname, C_USE use
+		FROM
+		    CODE
+		WHERE
+			C_CNO = #{cno}
+	</select>
+</mapper>
