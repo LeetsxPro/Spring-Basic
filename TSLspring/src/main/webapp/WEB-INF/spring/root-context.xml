@@ -9,8 +9,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-		<property name="username" value="koitt" />
-		<property name="password" value="koitt" />
+		<property name="username" value="tslsql" />
+		<property name="password" value="1234" />
 		<property name="maxActive" value="8" />
 	</bean>
 	
@@ -24,5 +24,5 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
-		
+	
 </beans>

@@ -36,10 +36,8 @@
 	-->
 	
 	<typeAliases>
-		<!-- <typeAlias alias="page" type="com.simple.www.util.PageUtil" />
-		<typeAlias alias="mVO" type="com.simple.www.vo.MemberVO" />
-		<typeAlias alias="fVO" type="com.simple.www.vo.FileVO" />
-		<typeAlias alias="rbVO" type="com.simple.www.vo.ReboardVO" /> -->
+		<typeAlias alias="mVO" type="com.TSL.www.vo.MemberVO" />
+		
 	</typeAliases>
 	
 	<!-- mybatis에서 사용할 질의명령문서 추가 -->
@@ -55,8 +53,8 @@
 			</mappers>
 	 -->
 	<mappers>
-		<!-- <mapper resource="com/simple/www/sql/MemberSQL.xml" />
-		<mapper resource="com/simple/www/sql/ReBoardSQL.xml" /> -->
+		<mapper resource="com/TSL/www/sql/MemberSQL.xml" />
+		
 	</mappers>
 	
 
