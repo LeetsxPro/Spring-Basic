@@ -37,6 +37,7 @@ $(function(){
 				$('#use').html(data.use);
 				$('.ei').css('display', 'none');
 				$('.list').css('display', 'inline-block');
+				$('#cnoP').css('display', 'inline-block');
 				
 			},
 			error : function(){
@@ -50,6 +51,8 @@ $(function(){
 		$('.list').css('display', 'none');
 		$('.ei').css('display', 'inline-block');
 		$('#twoAction').val("a1");
+		$('.ei').attr('disabled', false);
+		$('#cnoP').css('display', 'none');
 		
 		$('.cno').val('');
 		$('.clv').val('');
@@ -63,6 +66,10 @@ $(function(){
 		$('.list').css('display', 'none');
 		$('.ei').css('display', 'inline-block');
 		$('#twoAction').val("a2");
+		$('.ei').attr('disabled', false);
+		
+		$('.cno2').html($('#cno').text());
+		$('#cnoP').css('display', 'inline-block');
 		
 		$('.cno').val($('#cno').text());
 		$('.clv').val($('#clv').text());
@@ -70,31 +77,46 @@ $(function(){
 		$('.cname').val($('#cname').text());
 		$('.use').val($('#use').text());
 		
+		
 	});
 	
 	// 저장 버튼
 	$('#save').click(function(){
 		var action = $('#twoAction').val();
 		
+		// 코드 추가 실행
 		if(action == 'a1'){
 			alert("a1");
+			// SQL 체크 박스 값 넘길 때
+			if ($('input[name=useCK]').is(":checked")) {
+			    $('input[name=use]').val('Y');
+			} else {
+			    $('input[name=use]').val('N');
+			}
+			$('#form1').attr("action", "/www/code/codeAdd");
+			$('#form1').submit();
+			
+		// 코드 수정 실행
 		}else{
 			alert("a2");
+			// SQL 체크 박스 값 넘길 때
+			if ($('input[name=useCK]').is(":checked")) {
+			    $('input[name=use]').val('Y');
+			} else {
+			    $('input[name=use]').val('N');
+			}
+			$('#form1').attr("action", "/www/code/codeEdit");
+			$('#form1').submit();
 		}
-		
-		/* $("#update").click(function () {
-		       $("form").attr("action", "/manage/update");
-		});
-		 
-		$("#delete").click(function () {
-		       $("form").attr("action", "/manage/delete");
-		});
- */
 	});
+	
+	// 체크 박스 checked
+	$('input:checkbox[id="Y"]').attr("checked", true);
+	
 });
 </script>
 </head>
-<body>
+<body>	
 	<div class="container">
 		<h1>전체리스트</h1>
 		<table class="table table-bordered text-center">
@@ -114,7 +136,7 @@ $(function(){
 						<td>${data.clv }</td>
 						<td>${data.highc }</td>
 						<td>${data.cname }</td>
-						<td>${data.use }</td>
+						<td><input type="checkbox" id="${data.use }" disabled="disabled"></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -122,18 +144,21 @@ $(function(){
 		<div style="border:1px solid black">
 			<div style="border-bottom:1px solid black"><h1>코드내용</h1></div>
 			<input type="text" id="twoAction">
-			<form method="post" id="form1">
-				<p>코드번호:<span class="list" id="cno"></span>
-					<input class="ei cno" type="text" name="cno"></p>
+			<form method="post" action="" id="form1">
+				<p id="cnoP">코드번호:<span class="list" id="cno"></span>
+					<input class="ei cno" type="text" name="cno" disabled>
+					<span class="cno2"></span></p>
 				<p>코드레벨:<span class="list" id="clv"></span>
-					<input class="ei clv" type="text" name="clv"></p>
+					<input class="ei clv" type="text" name="clv" disabled></p>
 				<p>상위코드:<span class="list" id="highc"></span>
-					<input class="ei highc" type="text" name="highc"></p>
+					<input class="ei highc" type="text" name="highc" disabled></p>
 				<p>코드이름:<span class="list" id="cname"></span>
-					<input class="ei cname" type="text" name="cname"></p>
+					<input class="ei cname" type="text" name="cname" disabled></p>
 				<p>사용여부:<span class="list" id="use"></span>
-					<input class="ei use" type="text" name="use"></p>
+					<input type="hidden" name="use">
+					<input class="ei use" type="checkbox" name="useCK" disabled></p>
 			</form>
+			
 			<button type="button" id="insert">추가</button>
 			<button type="button" id="edit">수정</button>
 			<button type="button" id="save">저장</button>

@@ -23,4 +23,27 @@
 		WHERE
 			C_CNO = #{cno}
 	</select>
+	
+	<!-- 코드 추가 실행 -->
+	<insert id="codeAdd" parameterType="cVO">
+		INSERT INTO
+		    CODE
+		VALUES(
+		    
+		    (SELECT
+		        'C'||LPAD(NVL(SUBSTR(MAX(C_CNO),2,5)+1,1),4,'0')
+		    FROM
+		        CODE), #{clv}, #{highc}, #{cname}, #{use}
+		)
+	</insert>
+	
+	<!-- 코드 수정 실행 -->
+	<update id="codeEdit" parameterType="cVO">
+		UPDATE 
+		    CODE
+		SET 
+		    C_CLV = #{clv}, C_HIGHC = #{highc}, C_CNAME = #{cname}, C_USE = #{use}
+		WHERE 
+		    C_CNO = #{cno}
+	</update>
 </mapper>

@@ -18,8 +18,20 @@ public class CodeDAO {
 		return sqlSession.selectList("cSQL.codeList", cVO);
 	}
 
+	// 코드 내용 보기
 	public CodeVO codeInfo(CodeVO cVO) {
 		
 		return sqlSession.selectOne("cSQL.codeInfo", cVO);
+	}
+
+	// 코드 추가 실행
+	public int codeAdd(CodeVO cVO) {
+		
+		return sqlSession.insert("cSQL.codeAdd", cVO);
+	}
+
+	public int codeEdit(CodeVO cVO) {
+		
+		return sqlSession.update("cSQL.codeEdit", cVO);
 	}
 }
