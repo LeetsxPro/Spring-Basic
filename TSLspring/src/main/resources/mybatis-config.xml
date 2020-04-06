@@ -38,6 +38,7 @@
 	<typeAliases>
 		<typeAlias alias="mVO" type="com.TSL.www.vo.MemberVO" />
 		<typeAlias alias="cVO" type="com.TSL.www.vo.CodeVO" />
+		<typeAlias alias="prodVO" type="com.TSL.www.vo.ProductVO" />
 		
 	</typeAliases>
 	
@@ -56,6 +57,7 @@
 	<mappers>
 		<mapper resource="com/TSL/www/sql/MemberSQL.xml" />
 		<mapper resource="com/TSL/www/sql/CodeSQL.xml" />
+		<mapper resource="com/TSL/www/sql/ProductSQL.xml" />
 		
 	</mappers>
 	
