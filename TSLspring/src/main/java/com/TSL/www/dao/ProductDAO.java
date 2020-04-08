@@ -18,10 +18,13 @@ public class ProductDAO {
 		return sqlSession.selectList("prodSQL.mfrList", prodVO);
 	}
 
-	// 제품 리스트 출력
-	public List<ProductVO> prodList(ProductVO prodVO) {
+	// 1차 카테고리 선택시 자동 1차 분류 리스트 출력
+	public List<ProductVO> subList(ProductVO prodVO) {
 		
-		return sqlSession.selectList("prodSQL.prodList", prodVO);
+		List<ProductVO> list = sqlSession.selectList("prodSQL.subList", prodVO);
+		System.out.println(list.size());
+		return list;
+		
 	}
 
 }

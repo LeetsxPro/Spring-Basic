@@ -31,13 +31,11 @@ public class Product {
 	}
 	
 	// 제품 리스트 출력
-	@RequestMapping("prodList")
-	public  @ResponseBody ProductVO prodList(ProductVO prodVO) {
+	@RequestMapping("subList")
+	public @ResponseBody List<ProductVO> subList(ProductVO prodVO) {
 		
-		List<ProductVO> list = prodDAO.prodList(prodVO);
+		List<ProductVO> list = prodDAO.subList(prodVO);
 		
-		
-		
-		return prodVO ;
+		return list;
 	}
 }

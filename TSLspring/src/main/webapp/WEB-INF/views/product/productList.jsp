@@ -16,25 +16,29 @@
 </style>
 <script type="text/javascript">
 $(function(){
+	
+	// 1차 카테고리 선택시 자동 1차 분류 목록 실행
 	$('select[name=category]').change(function() {
 		$.ajax({
-			url:"/www/product/prodList",
+			url:"/www/product/subList",
 			type:"post",
 			dataType:"json",
 			data:{
-				"mfrcd" : $('select[name=category] > option:selected').val()
+				"mfrcdno" : $('select[name=category] > option:selected').val()
 			},
 			
 			success: function(data) {
 				$("select[name=firstClassification] option").remove();  // 옵션 제거
-				$("select[name=firstClassification]").append('<option value=""> - 선택 - </option>');
-				$(data).each(function(index, item) {
-					$("select[name=firstClassification]").append('<option value="' + item.prodcd + '">' + item.prodtype + '</option>');
-				})
+				for(key in data){
+					$('select[name=firstClassification]').append('<option value="' + data[key].mfrcdno + '">' + data[key].mfrnm + '</option>');
+				}
+				console.log(data[key]);
 			}
 		});
 	});
-
+	
+	// 조회 버튼 클릭시
+	$('#lookup').click
 });
 </script>
 </head>
@@ -47,18 +51,37 @@ $(function(){
 				<select name="category">
 					<option value='' selected>-- 선택 --</option>
 					<c:forEach var="mfrList" items="${mfrList}">
-						<option value="${mfrList.mfrcd}">${mfrList.mfrnm}</option>
+						<option value="${mfrList.mfrcdno}">${mfrList.mfrnm}</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div class="col-md">1차 분류</div>
 			<div class="col-md">
 				<select name='firstClassification'>
-					<option></option>
+					<option>--선택--</option>
 				</select>
 			</div>
-			<div class="col-md"><button type="button">조회</button></div>
+			<div class="col-md"><button type="button" id="lookup">조회</button></div>
 		</div>
+		<table class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th>상품코드</th>
+					<th>상품명</th>
+					<th>제조사코드</th>
+					<th>제조사명</th>
+					<th>단위코드</th>
+					<th>단위명</th>
+					<th>재고수량</th>
+					<th>재고여부</th>
+					<th>사용여부</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

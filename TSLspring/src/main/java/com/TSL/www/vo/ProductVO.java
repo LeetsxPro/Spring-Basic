@@ -2,34 +2,19 @@ package com.TSL.www.vo;
 
 public class ProductVO {
 
-	private String mfrcd;
+	private String mfrcdno;
 	private String mfrnm;
-	private String prodcd;
-	private String prodtype;
-	
-	public String getMfrcd() {
-		return mfrcd;
+	public String getMfrcdno() {
+		return mfrcdno;
 	}
-	public void setMfrcd(String mfrcd) {
-		this.mfrcd = mfrcd;
+	public void setMfrcdno(String mfrcdno) {
+		this.mfrcdno = mfrcdno;
 	}
 	public String getMfrnm() {
 		return mfrnm;
 	}
 	public void setMfrnm(String mfrnm) {
 		this.mfrnm = mfrnm;
-	}
-	public String getProdcd() {
-		return prodcd;
-	}
-	public void setProdcd(String prodcd) {
-		this.prodcd = prodcd;
-	}
-	public String getProdtype() {
-		return prodtype;
-	}
-	public void setProdtype(String prodtype) {
-		this.prodtype = prodtype;
 	}
 	
 	

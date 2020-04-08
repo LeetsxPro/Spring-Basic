@@ -9,18 +9,20 @@
 	<!-- 제조사 리스트 출력 -->
 	<select id="mfrList" resultType="prodVO" parameterType="prodVO">
 		SELECT
-		    MFRCD mfrcd, MFRNM mfrnm
+		    MFR_CDNO mfrcdno, MFR_NM mfrnm
 		FROM
 		    MFR
+		WHERE
+		    MFR_CDLV = 1
 	</select>
 
 	<!-- 제품 리스트 출력 -->
-	<select id="prodList" resultType="prodVO" parameterType="prodVO">
+	<select id="subList" resultType="prodVO" parameterType="prodVO">
 		SELECT
-		    PRODCD prodcd, PRODTYPE prodtype
+		    MFR_CDNO mfrcdno, MFR_NM mfrnm
 		FROM
-		    PROD
+		    MFR
 		WHERE
-		    MFRCD = #{mfrcd}
+		    MFR_HICDNO = #{mfrcdno}
 	</select>
 </mapper>
