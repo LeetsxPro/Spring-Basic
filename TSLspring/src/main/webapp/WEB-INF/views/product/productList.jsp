@@ -61,7 +61,7 @@ $(function(){
 					<option>--선택--</option>
 				</select>
 			</div>
-			<div class="col-md"><button type="button" id="lookup">조회</button></div>
+			<div class="col-md"><button type="button" id="lookup">조회회회</button></div>
 		</div>
 		<table class="table table-bordered text-center">
 			<thead>
