@@ -8,9 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/main/")
 public class Main {
 
-	@RequestMapping("main")
+	// 메인 페이지
+	@RequestMapping("mainPage")
 	public ModelAndView main(ModelAndView mv) {
-		mv.setViewName("main/main");
+		mv.setViewName("main/mainPage");
 		return mv;
 	}
 }

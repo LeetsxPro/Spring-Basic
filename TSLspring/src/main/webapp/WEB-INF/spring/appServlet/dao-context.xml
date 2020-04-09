@@ -3,8 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-   <bean id="mDAO" class="com.TSL.www.dao.MemberDAO" />
-   <bean id="cDAO" class="com.TSL.www.dao.CodeDAO" />
+   <bean id="mbDAO" class="com.TSL.www.dao.MemberDAO" />
    <bean id="prodDAO" class="com.TSL.www.dao.ProductDAO" />
    
 </beans>

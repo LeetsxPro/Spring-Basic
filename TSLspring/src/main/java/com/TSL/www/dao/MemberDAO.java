@@ -10,9 +10,9 @@ public class MemberDAO {
 	@Autowired
 	SqlSessionTemplate sqlSession;
 
-	// 회원가입 실행
-	public int joinProc(MemberVO mVO) {
+	// 로그인 진행
+	public int loginProg(MemberVO mbVO) {
 		
-		return sqlSession.insert("mSQL.joinProc", mVO);
+		return sqlSession.selectOne("mbSQL.loginProg", mbVO);
 	}
 }

@@ -14,27 +14,35 @@ import com.TSL.www.vo.MemberVO;
 public class Member {
 	
 	@Autowired
-	MemberDAO mDAO;
-
-	// 회원가입 페이지
-	@RequestMapping("join")
-	public ModelAndView mv(ModelAndView mv) {
+	MemberDAO mbDAO;
+	
+	// 로그인 페이지
+	@RequestMapping("loginPage")
+	public ModelAndView loginPage(ModelAndView mv) {
 		
-		mv.setViewName("member/join");
+		mv.setViewName("member/loginPage");
 		return mv;
 	}
 	
-	// 회원가입 실행
-	@RequestMapping("joinProc")
-	public ModelAndView mv(ModelAndView mv, RedirectView rv, MemberVO mVO) {
+	// 로그인 
+	@RequestMapping("loginProg")
+	public ModelAndView loginProg(ModelAndView mv, MemberVO mbVO, RedirectView rv) {
 		
-		int cnt = mDAO.joinProc(mVO);
+		int cnt = mbDAO.loginProg(mbVO);
 		if(cnt == 1) {
-			rv.setUrl("/www/main/main");
+			rv.setUrl("/www/main/mainPage");
 		}else {
-			rv.setUrl("/www/member/join");
+			rv.setUrl("loginPage");
 		}
 		mv.setView(rv);
+		return mv;
+	}
+	
+	// 회원가입 페이지
+	@RequestMapping("joinPage")
+	public ModelAndView joinPage(ModelAndView mv) {
+		
+		mv.setViewName("member/joinPage");
 		return mv;
 	}
 }

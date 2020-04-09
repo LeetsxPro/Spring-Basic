@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.TSL.www.dao.ProductDAO;
-import com.TSL.www.vo.CodeVO;
 import com.TSL.www.vo.ProductVO;
 
 @Controller
