@@ -15,4 +15,16 @@ public class MemberDAO {
 		
 		return sqlSession.selectOne("mbSQL.loginProg", mbVO);
 	}
+	
+	// 아이디 중복 체크
+	public int idCK(MemberVO mbVO) {
+		
+		return sqlSession.selectOne("mbSQL.idCK", mbVO);
+	}
+	
+	// 회원가입 진행
+	public int joinProg(MemberVO mbVO) {
+		
+		return sqlSession.insert("mbSQL.joinProg", mbVO);
+	}
 }

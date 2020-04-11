@@ -129,5 +129,16 @@
 		AND MBPW = #{pw}
 	</select>
 	
-
+	<!-- 아이디 중복 체크 -->
+	<select id="idCK" resultType="int" parameterType="mbVO">
+		SELECT COUNT (*) cnt
+		FROM MEMBER
+		WHERE MBID = #{id}
+	</select>
+	
+	<!-- 회원가입 진행 -->
+	<insert id="joinProg">
+		INSERT INTO MEMBER
+		VALUES(#{id}, #{pw}, #{name})
+	</insert>
 </mapper>

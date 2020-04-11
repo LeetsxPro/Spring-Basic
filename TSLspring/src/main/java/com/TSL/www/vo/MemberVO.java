@@ -4,6 +4,7 @@ public class MemberVO {
 
 	private String id;
 	private String pw;
+	private String name;
 	private int cnt;
 
 	public String getId() {
@@ -20,6 +21,14 @@ public class MemberVO {
 
 	public void setPw(String pw) {
 		this.pw = pw;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getCnt() {
