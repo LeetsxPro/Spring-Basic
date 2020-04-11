@@ -46,7 +46,7 @@ $(function(){
 			<p>비밀번호:<input type="password" name="pw"></p>
 		</form>
 		<button type="button" id="login">로그인</button>
-		<button type="button" id="join">회원가입</button>
+		<button type="button" id="join">회원가입입</button>
 	</div>
 </body>
 </html>
